@@ -44,7 +44,9 @@ below is still in the tree (and still starts in the main process) but the render
 - **i18n** — UI strings are the `govt` namespace: `govt/locales/<code>.ts` (11 languages). Every language must have the exact key tree and
   `{{placeholders}}` of `en.ts` (a test enforces it). Scheme/document copy is en+hi in the data; other languages come from `useTx()`
   (LLM, cached). Urdu is RTL via `useDirectionSync`.
-- **Checks**: `node --test test/govt-domain.test.cjs test/govt-i18n-layout.test.cjs test/govt-main.test.cjs test/govt-vault.test.cjs`.
+- **Draft theme** (third `style`, `AppStyle` in `govt/state.ts`): the first Skeemo UI, rebuilt from the session transcript into `govt/draft/` (own store, own `g-` CSS, own `govtdraft` i18n namespace, own floor in `scene/govt/draft/`, photo backdrop `assets/draft/govt-office.jpg` cropped/upscaled from `reference/govt-office-source.jpg`). Only `SkeemoApp.tsx` imports it. Do not make the current UI depend on it; `test/govt-draft.test.cjs` guards that. It keeps its emoji on purpose.
+- **Packaging**: product is `Skeemo` (appId `com.skeemo.app`, installs to `%LOCALAPPDATA%ProgramsSkeemo`, data in `%APPDATA%Skeemo`; the first run copies `%APPDATA%IsCoolsamadhaan`). Icons come from `reference/skeemo-logo.*` via `node tools/build-brand-assets.cjs`.
+- **Checks**: `node --test test/govt-draft.test.cjs test/govt-domain.test.cjs test/govt-i18n-layout.test.cjs test/govt-main.test.cjs test/govt-vault.test.cjs`.
 - **Dev tricks** (dev builds only): `SAMADHAAN_USER_DATA=<dir>` runs against a throw-away profile; `SAMADHAAN_DEBUG_PORT=9444` exposes
   the DevTools protocol so the UI can be driven/screenshotted headlessly. Do not drive an instance the user is looking at.
 - **Windows gotchas**: never `rm -rf` a directory that contains an NTFS junction to `node_modules` (it can delete the real folder); if

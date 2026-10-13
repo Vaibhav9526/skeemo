@@ -44,7 +44,7 @@ export function OfficeView() {
       <div className="sk-office-row">
         <div className="sk-office">
           <GovtFloor
-            key={style} look={look} citizenName={profile.name.split(' ')[0]} desk={desk} style={style} notes={stable} emptyNote={t('notice.empty')}
+            key={style} look={look} citizenName={profile.name.split(' ')[0]} desk={desk} style={style === 'modern' ? 'modern' : 'classic'} notes={stable} emptyNote={t('notice.empty')}
             onArrive={(d) => selectDesk(d)} onNote={(id) => openNotice(id)}
           />
           <div className="sk-office-hint"><Icon name="compass" size={14} /> {t('office.hint')}</div>

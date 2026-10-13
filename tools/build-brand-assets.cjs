@@ -38,7 +38,7 @@ function buildIcns(entries) {
 }
 
 async function main() {
-  const image = await loadImage(path.join(root, 'reference/logo.png'));
+  const image = await loadImage(path.join(root, 'reference/skeemo-logo.png'));
   if (image.width !== image.height) throw new Error('The app logo must be square.');
   const raster = (size) => {
     const canvas = createCanvas(size, size);
@@ -48,14 +48,14 @@ async function main() {
     return canvas.toBuffer('image/png');
   };
   const outputs = [
-    ['icon.svg', await fs.readFile(path.join(root, 'reference/logo.svg'))],
+    ['icon.svg', await fs.readFile(path.join(root, 'reference/skeemo-logo.svg'))],
     ['icon.png', raster(1024)],
     ['icon.ico', buildIco([16, 32, 48, 64, 128, 256].map((size) => ({ size, data: raster(size) })))],
     ['icon.icns', buildIcns([['ic07', 128], ['ic08', 256], ['ic09', 512], ['ic10', 1024]].map(([type, size]) => ({ type, data: raster(size) })))],
   ];
   for (const [name, data] of outputs) {
     await fs.writeFile(path.join(root, 'build', name), data);
-    console.log(`[brand-assets] reference/logo → build/${name}`);
+    console.log(`[brand-assets] reference/skeemo-logo → build/${name}`);
   }
 }
 

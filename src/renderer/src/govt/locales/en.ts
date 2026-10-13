@@ -133,7 +133,7 @@ const en = {
     hint: 'Click a counter to talk to it, or open the chat.',
     openChat: 'Open chat',
   },
-  style: { label: 'Map style', classic: 'Classic', modern: 'Modern' },
+  style: { label: 'Map style', classic: 'Classic', modern: 'Modern', draft: 'Draft' },
   marquee: { label: 'Closing soon', anytime: 'Apply any time' },
   notice: {
     docs: 'Documents', pending: '{{count}} more details needed to confirm', portal: 'Official portal', rolling: 'Rolling window', start: 'Start this application', why: 'Why this fits you',

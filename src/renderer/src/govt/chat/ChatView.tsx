@@ -174,7 +174,8 @@ export function ThreadPane({ desk, compact = false }: { desk: DeskId; compact?: 
   const hello = desk === 'documents' && !active ? t('desk.documents.noCase') : t(`desk.${desk}.hello`, { name: profile?.name ?? '', count });
   useAutoSpeak(`hello-${desk}`, hello, actor.id);
   const mine = useMemo(() => handoffs.filter((h) => h.desk === desk).slice(-1)[0], [handoffs, desk]);
-  useEffect(() => { scroller.current?.scrollTo({ top: 0 }); }, [desk]);
+  const tool = useRef<HTMLDivElement | null>(null);
+  useEffect(() => { scroller.current?.scrollTo({ top: 0 }); if (compact) requestAnimationFrame(() => tool.current?.scrollIntoView({ block: 'start' })); }, [desk, compact]);
   useEffect(() => { if (thread.length || busy) end.current?.scrollIntoView({ block: 'end' }); }, [thread.length, busy]);
 
   // quick starts: Help has fixed questions, Registration offers the schemes that fit the citizen best
@@ -189,7 +190,12 @@ export function ThreadPane({ desk, compact = false }: { desk: DeskId; compact?: 
     <>
       <div className="sk-msgs sk-scroll" ref={scroller}>
         <div className="sk-msgs-inner">
-          {empty && (
+          {empty && compact && chips.length > 0 && (
+            <div className="sk-row" style={{ marginTop: 8 }}>
+              {chips.map((c) => <button key={c} className="sk-chip" onClick={() => void sendMessage(c)}>{c}</button>)}
+            </div>
+          )}
+          {empty && !compact && (
             <div className="sk-hero">
               <span className="sk-hero-face"><Pixie look={actor.look} scale={compact ? 3 : 4} bust label={actor.name} /></span>
               <h2>{t('chat.hi', { name: actor.name.split(' ')[0] })}</h2>
@@ -208,7 +214,7 @@ export function ThreadPane({ desk, compact = false }: { desk: DeskId; compact?: 
             <span className="face"><AgentFace actor={actor.id} /></span>
             <div className="sk-bubble"><SpeakButton id={`hello-${desk}`} text={hello} desk={actor.id} />{hello}</div>
           </div>
-          <div className="sk-tool"><ToolFor desk={desk} /></div>
+          <div className="sk-tool" ref={tool}><ToolFor desk={desk} /></div>
           {thread.map((m) => <Bubble key={m.id} m={m} desk={desk} />)}
           {busy && <div className="sk-msg agent"><span className="face"><AgentFace actor={actor.id} /></span><div className="sk-bubble"><span className="sk-typing"><i /><i /><i /></span></div></div>}
           <div ref={end} />

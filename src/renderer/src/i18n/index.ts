@@ -22,6 +22,7 @@ import en from './locales/en.json';
 import zhCN from './locales/zh-CN.json';
 import ar from './locales/ar.json';
 import { GOVT_RESOURCES } from '../govt/locales';
+import { DRAFT_RESOURCES } from '../govt/draft/locales';
 
 /**
  * The languages the Settings picker offers, in display order.
@@ -120,12 +121,12 @@ void i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: en, govt: GOVT_RESOURCES.en },
+      en: { translation: en, govt: GOVT_RESOURCES.en, govtdraft: DRAFT_RESOURCES.en },
       'zh-CN': { translation: zhCN },
       ar: { translation: ar },
-      ...Object.fromEntries(Object.entries(GOVT_RESOURCES).filter(([k]) => k !== 'en').map(([k, v]) => [k, { govt: v }]))
+      ...Object.fromEntries(Object.entries(GOVT_RESOURCES).filter(([k]) => k !== 'en').map(([k, v]) => [k, { govt: v, govtdraft: DRAFT_RESOURCES[k as keyof typeof DRAFT_RESOURCES] }]))
     },
-    ns: ['translation', 'govt'],
+    ns: ['translation', 'govt', 'govtdraft'],
     defaultNS: 'translation',
     lng: detectLanguage(),
     fallbackLng: 'en',

@@ -1,8 +1,8 @@
 {
-  "name": "iscool",
-  "version": "0.1.0",
+  "name": "skeemo",
+  "version": "0.2.0",
   "private": true,
-  "description": "IsCool — a school of AI tutors: Teacher, Topper, Smart Guy and Librarian, running on your own machine.",
+  "description": "Skeemo — find the government schemes you qualify for, and get the paperwork right.",
   "main": "out/main/index.js",
   "author": "Tizmo AI",
   "homepage": "",
@@ -86,5 +86,5 @@
       "@electron/rebuild": "$@electron/rebuild"
     }
   },
-  "productName": "IsCool"
+  "productName": "Skeemo"
 }

@@ -36,9 +36,9 @@ The **chaprasi** (peon, and the app's mascot) walks your file from counter to co
 - **Vault**: keep your papers in one place. Each is read with OCR on this computer and judged valid, needs a look, or invalid
   (type, ID checksum, your name, expiry). It also counts the applications and scholarships you have filed.
 
-### Two looks
+### Three looks
 
-A select in the top bar switches the Office between **Classic** (a crisp pixel tilemap) and **Modern** (an illustrated office with soft panels).
+A select in the top bar switches between **Classic** (a crisp pixel tilemap), **Modern** (an illustrated office with soft panels) and **Draft** — the original first version of Skeemo, kept as its own separate UI (desk panels instead of chat, the photo office). Draft lives in `src/renderer/src/govt/draft` and shares nothing with the other two but the scheme data and the main process.
 
 ## Languages and voice
 

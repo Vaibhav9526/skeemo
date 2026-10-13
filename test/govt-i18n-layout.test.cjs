@@ -35,7 +35,7 @@ test('every key the UI asks for exists in English', () => {
   const en = new Map(flat(load('en')));
   const root = path.resolve(__dirname, '..', 'src/renderer/src/govt');
   const files = [];
-  (function walk(d) { for (const f of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, f.name); if (f.isDirectory() && f.name !== 'locales') walk(p); else if (/\.tsx?$/.test(f.name)) files.push(p); } })(root);
+  (function walk(d) { for (const f of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, f.name); if (f.isDirectory() && f.name !== 'locales' && f.name !== 'draft') walk(p); else if (/\.tsx?$/.test(f.name)) files.push(p); } })(root);
   const used = new Set();
   for (const f of files) for (const m of fs.readFileSync(f, 'utf8').matchAll(/\bt\('([a-zA-Z_.]+)'/g)) used.add(m[1]);
   const missing = [...used].filter((k) => !en.has(k));

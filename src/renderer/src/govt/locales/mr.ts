@@ -133,7 +133,7 @@ const mr = {
     hint: 'काउंटरवर क्लिक करून बोला, किंवा चॅट उघडा.',
     openChat: 'चॅट उघडा',
   },
-  style: { label: 'नकाशा शैली', classic: 'क्लासिक', modern: 'मॉडर्न' },
+  style: { label: 'नकाशा शैली', classic: 'क्लासिक', modern: 'मॉडर्न', draft: 'Draft' },
   marquee: { label: 'लवकरच बंद', anytime: 'कधीही अर्ज करा' },
   notice: {
     docs: 'कागदपत्रे', pending: 'खात्रीसाठी आणखी {{count}} माहिती हवी', portal: 'अधिकृत पोर्टल', rolling: 'सतत सुरू', start: 'हा अर्ज सुरू करा', why: 'हे तुम्हाला का लागू',

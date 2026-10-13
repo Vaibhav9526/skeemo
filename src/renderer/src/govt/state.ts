@@ -6,6 +6,9 @@ import type { VaultDoc } from '@shared/govt/vaultTypes';
 import type { SchemeCategory } from '@shared/govt/schemes';
 import { floor } from '@/scene/govt/floorBus';
 import type { MapStyle } from '@/scene/govt/layout';
+
+/** The three looks: two maps of the same app, plus the original first version (draft), which is a whole separate UI. */
+export type AppStyle = MapStyle | 'draft';
 import { setLanguage } from '@/i18n';
 
 export type Settings = GovtSettingsView;
@@ -26,7 +29,7 @@ interface State {
   desk: DeskId;
   prefill: Prefill;
   /** Classic pixel tilemap or the illustrated Modern map. */
-  style: MapStyle;
+  style: AppStyle;
   /** Scheme whose notice is open in front of the notice board. */
   noticeId: string | null;
   settingsOpen: boolean;
@@ -41,7 +44,7 @@ interface State {
   setSettings: (s: Settings) => void;
   setLang: (code: string) => Promise<void>;
   setView: (v: View) => void;
-  setStyle: (s: MapStyle) => void;
+  setStyle: (s: AppStyle) => void;
   openNotice: (id: string | null) => void;
   /** Pick a counter without leaving the room you are in (the Office dock follows it). */
   selectDesk: (d: DeskId) => void;
@@ -60,8 +63,8 @@ interface State {
   addHandoff: (desk: DeskId, text: string) => void;
 }
 
-function loadStyle(): MapStyle {
-  try { return window.localStorage.getItem('skeemo.style') === 'modern' ? 'modern' : 'classic'; } catch { return 'classic'; }
+function loadStyle(): AppStyle {
+  try { const v = window.localStorage.getItem('skeemo.style'); return v === 'modern' || v === 'draft' ? v : 'classic'; } catch { return 'classic'; }
 }
 
 const uid = () => `h${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;

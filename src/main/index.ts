@@ -2340,6 +2340,12 @@ if (process.defaultApp) {
 // Dev only: SAMADHAAN_DEBUG_PORT=9333 exposes the Chrome DevTools protocol so the UI can be driven and screenshotted headlessly.
 // Dev only: SAMADHAAN_USER_DATA=<dir> runs against a throw-away profile (its own settings, files and single-instance lock).
 if (!app.isPackaged && process.env.SAMADHAAN_USER_DATA) app.setPath('userData', process.env.SAMADHAAN_USER_DATA);
+// Skeemo used to keep its data under the IsCool app folder. The first run under the Skeemo name copies it across once (never overwrites).
+try {
+  const mine = join(app.getPath('userData'), 'samadhaan');
+  const legacy = join(app.getPath('appData'), 'IsCool', 'samadhaan');
+  if (!existsSync(mine) && existsSync(legacy) && !process.env.SAMADHAAN_USER_DATA) cpSync(legacy, mine, { recursive: true });
+} catch { /* start fresh */ }
 if (!app.isPackaged && /^[0-9]{4,5}$/.test(process.env.SAMADHAAN_DEBUG_PORT ?? '')) app.commandLine.appendSwitch('remote-debugging-port', process.env.SAMADHAAN_DEBUG_PORT as string);
 const gotInstanceLock = app.requestSingleInstanceLock();
 if (!gotInstanceLock) {

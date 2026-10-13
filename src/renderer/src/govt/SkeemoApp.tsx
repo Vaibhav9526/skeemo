@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDirectionSync } from '@/i18n/useDirection';
 import { GOVT_LANGUAGES } from '@shared/govt/languages';
 import { lookFor } from './art/people';
-import { useGovt, type View } from './state';
+import { useGovt, type AppStyle, type View } from './state';
 import { Pixie } from './ui';
 import { Icon, Logo } from './icons';
 import { stopSpeaking } from './voice';
@@ -13,6 +13,7 @@ import { OfficeView } from './OfficeView';
 import { ChatView } from './chat/ChatView';
 import { VaultView } from './vault/VaultView';
 import { NoticeOverlay } from './NoticeOverlay';
+import { DraftApp } from './draft/DraftApp';
 import './skeemo.css';
 import './skeemo2.css';
 
@@ -47,6 +48,7 @@ export function SkeemoApp() {
   }, []);
 
   const look = useMemo(() => (profile ? lookFor(profile) : null), [profile]);
+  if (style === 'draft') return <DraftApp />;
   if (!ready) return <div className="sk-root"><div className="sk-boot">Skeemo</div></div>;
 
   const nav: Array<[View, string, 'office' | 'chat' | 'vault']> = [['office', t('nav.office'), 'office'], ['chat', t('nav.chat'), 'chat'], ['vault', t('nav.vault'), 'vault']];
@@ -66,9 +68,10 @@ export function SkeemoApp() {
         {profile && view === 'office' && (
           <label className="sk-selectbox" title={t('style.label')}>
             <Icon name="map" size={15} />
-            <select aria-label={t('style.label')} value={style} onChange={(e) => setStyle(e.target.value as 'classic' | 'modern')}>
+            <select aria-label={t('style.label')} value={style} onChange={(e) => setStyle(e.target.value as AppStyle)}>
               <option value="classic">{t('style.classic')}</option>
               <option value="modern">{t('style.modern')}</option>
+              <option value="draft">{t('style.draft')}</option>
             </select>
           </label>
         )}

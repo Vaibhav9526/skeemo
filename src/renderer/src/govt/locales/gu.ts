@@ -133,7 +133,7 @@ const gu = {
     hint: 'કાઉન્ટર પર ક્લિક કરીને વાત કરો, અથવા ચેટ ખોલો.',
     openChat: 'ચેટ ખોલો',
   },
-  style: { label: 'નકશાની શૈલી', classic: 'ક્લાસિક', modern: 'મોડર્ન' },
+  style: { label: 'નકશાની શૈલી', classic: 'ક્લાસિક', modern: 'મોડર્ન', draft: 'Draft' },
   marquee: { label: 'જલ્દી બંધ થાય છે', anytime: 'ગમે ત્યારે અરજી કરો' },
   notice: {
     docs: 'દસ્તાવેજો', pending: 'ખાતરી માટે વધુ {{count}} માહિતી જોઈએ', portal: 'સત્તાવાર પોર્ટલ', rolling: 'સતત ખુલ્લું', start: 'આ અરજી શરૂ કરો', why: 'આ તમને કેમ લાગુ પડે છે',

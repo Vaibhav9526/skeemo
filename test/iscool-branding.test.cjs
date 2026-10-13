@@ -9,7 +9,7 @@ const { createCanvas, loadImage } = require('@napi-rs/canvas');
 const root = path.join(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const raster = async (size) => {
-  const image = await loadImage(path.join(root, 'reference/logo.png'));
+  const image = await loadImage(path.join(root, 'reference/skeemo-logo.png'));
   const canvas = createCanvas(size, size);
   const ctx = canvas.getContext('2d');
   ctx.imageSmoothingEnabled = false;
@@ -45,7 +45,7 @@ test('README leads with the Skeemo logo and has the main sections', () => {
 
 test('packaged PNG and SVG preserve the supplied artwork', async () => {
   assert.ok(fs.readFileSync(path.join(root, 'build/icon.png')).equals(await raster(1024)), 'PNG matches the supplied logo');
-  assert.ok(fs.readFileSync(path.join(root, 'build/icon.svg')).equals(fs.readFileSync(path.join(root, 'reference/logo.svg'))), 'SVG matches the supplied logo');
+  assert.ok(fs.readFileSync(path.join(root, 'build/icon.svg')).equals(fs.readFileSync(path.join(root, 'reference/skeemo-logo.svg'))), 'SVG matches the supplied logo');
 });
 
 test('Windows icon includes correctly sized IsCool PNG entries', async () => {

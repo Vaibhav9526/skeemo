@@ -1,5 +1,5 @@
-appId: com.tizmoai.iscool
-productName: IsCool
+appId: com.skeemo.app
+productName: Skeemo
 copyright: Copyright © 2026 Tizmo AI
 
 # Where electron-updater looks for new versions (latest*.yml + assets on GitHub
@@ -33,10 +33,6 @@ afterSign: build/notarize.cjs
 
 # Register the jargon:// URL scheme (shareable-hires deep link) in the
 # packaged app: CFBundleURLTypes on macOS, registry entries via NSIS on Windows.
-protocols:
-  - name: IsCool
-    schemes:
-      - iscool
 
 # electron-vite emits the app into out/; package exactly that plus what the
 # runtime needs. node-pty is native, so keep it out of the asar.
@@ -126,7 +122,7 @@ mac:
       arch: [universal]
     - target: zip
       arch: [universal]
-  artifactName: IsCool-${version}-mac-${arch}.${ext}
+  artifactName: Skeemo-${version}-mac-${arch}.${ext}
 
 dmg:
   title: IsCool ${version}
@@ -144,11 +140,11 @@ nsis:
   oneClick: false
   perMachine: false
   allowToChangeInstallationDirectory: true
-  artifactName: IsCool-${version}-win-x64-setup.exe
-  shortcutName: IsCool
+  artifactName: Skeemo-${version}-win-x64-setup.exe
+  shortcutName: Skeemo
 
 portable:
-  artifactName: IsCool-${version}-win-x64-portable.exe
+  artifactName: Skeemo-${version}-win-x64-portable.exe
 
 # ---- Linux ----
 linux:
@@ -157,4 +153,4 @@ linux:
   target:
     - target: AppImage
       arch: [x64]
-  artifactName: IsCool-${version}-linux-x86_64.AppImage
+  artifactName: Skeemo-${version}-linux-x86_64.AppImage

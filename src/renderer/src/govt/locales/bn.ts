@@ -133,7 +133,7 @@ const bn = {
     hint: 'কাউন্টারে ক্লিক করে কথা বলুন, বা চ্যাট খুলুন।',
     openChat: 'চ্যাট খুলুন',
   },
-  style: { label: 'মানচিত্রের ধরন', classic: 'ক্লাসিক', modern: 'মডার্ন' },
+  style: { label: 'মানচিত্রের ধরন', classic: 'ক্লাসিক', modern: 'মডার্ন', draft: 'Draft' },
   marquee: { label: 'শীঘ্রই শেষ', anytime: 'যেকোনো সময় আবেদন' },
   notice: {
     docs: 'নথি', pending: 'নিশ্চিত করতে আরও {{count}}টি তথ্য লাগবে', portal: 'সরকারি পোর্টাল', rolling: 'চলমান', start: 'এই আবেদন শুরু করুন', why: 'এটি কেন আপনার জন্য',
