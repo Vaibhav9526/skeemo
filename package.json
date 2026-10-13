@@ -1,6 +1,6 @@
 {
   "name": "skeemo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Skeemo — find the government schemes you qualify for, and get the paperwork right.",
   "main": "out/main/index.js",

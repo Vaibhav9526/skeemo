@@ -124,3 +124,6 @@ button.g-chip:hover { border-color: var(--navy-2); }
 @media (max-width: 800px) { .g-twocol { flex-direction: column; align-items: stretch; } .g-panel { max-width: 100vw; width: 100vw; } }
 
 .g-boot { flex: 1; display: grid; place-items: center; font-weight: 700; color: var(--navy); }
+
+/* leave room for the window controls (minimise / maximise / close) that sit over the right edge */
+.g-top { padding-right: 154px; }
