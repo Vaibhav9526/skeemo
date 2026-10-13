@@ -1,0 +1,2 @@
+- **Ask about pictures.** Paste or attach an image or PDF in a School chat and the Teacher, Topper, Smart Guy or Librarian answers from it.
+- **Paste for the Librarian.** Pasting images and PowerPoint files now works with @convert and @compress.

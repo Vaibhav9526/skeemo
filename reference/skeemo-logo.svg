@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Skeemo">
+  <rect width="256" height="256" rx="56" fill="#2f5d4c"/>
+  <rect x="10" y="10" width="236" height="236" rx="48" fill="none" stroke="#3f7a63" stroke-width="3"/>
+  <!-- shirt -->
+  <path d="M40 256c2-44 30-70 88-70s86 26 88 70z" fill="#a39246"/>
+  <path d="M128 186l-22 24 22 46 22-46z" fill="#8d7b3a"/>
+  <rect x="150" y="214" width="34" height="30" rx="3" fill="#8d7b3a"/>
+  <rect x="164" y="208" width="5" height="12" rx="2" fill="#fff"/>
+  <!-- red towel over the shoulder -->
+  <path d="M48 218c20-26 46-40 74-36l-8 22c-18 0-36 10-52 30z" fill="#c0392b"/>
+  <path d="M48 218l-8 34 26 4 8-30z" fill="#a82f22"/>
+  <!-- neck + face -->
+  <rect x="106" y="166" width="44" height="26" rx="10" fill="#b57a4d"/>
+  <ellipse cx="128" cy="118" rx="58" ry="62" fill="#c58a5b"/>
+  <ellipse cx="72" cy="124" rx="9" ry="14" fill="#b57a4d"/><ellipse cx="184" cy="124" rx="9" ry="14" fill="#b57a4d"/>
+  <!-- khaki cap -->
+  <path d="M68 92c0-34 26-54 60-54s60 20 60 54z" fill="#a39246"/>
+  <path d="M64 92h128l-6 14H70z" fill="#7d6b34"/>
+  <path d="M96 52c10-8 22-12 32-12s22 4 32 12c-12-6-22-8-32-8s-20 2-32 8z" fill="#b8a758"/>
+  <circle cx="128" cy="68" r="7" fill="#d8b23a"/>
+  <!-- eyes: one open, one winking -->
+  <ellipse cx="102" cy="122" rx="8" ry="9" fill="#fff"/><circle cx="104" cy="124" r="4.5" fill="#2a1f2d"/>
+  <path d="M146 124q10-9 20 0" fill="none" stroke="#2a1f2d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M88 106q14-8 28-2" fill="none" stroke="#2a1f2d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M142 102q14-6 28 2" fill="none" stroke="#2a1f2d" stroke-width="5" stroke-linecap="round"/>
+  <!-- nose, moustache, grin -->
+  <path d="M128 128c-5 8-6 14 0 16" fill="none" stroke="#a96f43" stroke-width="4" stroke-linecap="round"/>
+  <path d="M84 150c14-14 30-10 44-2 14-8 30-12 44 2-14 4-30 6-44 4-14 2-30 0-44-4z" fill="#2a1f2d"/>
+  <path d="M92 158c10 22 26 30 36 30s26-8 36-30c-14 6-24 8-36 8s-22-2-36-8z" fill="#fff" stroke="#2a1f2d" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M118 176q10 6 20 0" fill="none" stroke="#d9786a" stroke-width="5" stroke-linecap="round"/>
+</svg>
